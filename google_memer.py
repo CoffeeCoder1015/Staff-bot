@@ -1,8 +1,10 @@
-import requests
 import random
 import re
+
+import requests
 from bs4 import BeautifulSoup
-from concurrent.futures import ThreadPoolExecutor
+
+from concurrnt.futures import ThreadPoolExecutor
 
 header = {
     'User-Agent':'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
