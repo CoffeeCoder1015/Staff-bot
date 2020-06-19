@@ -1,5 +1,4 @@
 import gct
-import minus
 
 st=None
 
