@@ -6,7 +6,7 @@ import google_memer
 from math import *
 
 client = commands.Bot(command_prefix="!")
-Id = "SERVER ID"
+Id = 720879927108567071
 SPAM_COUNT = 0
 text_stream_buffer = {}
 
@@ -98,4 +98,4 @@ async def MATH(ctx, math_arg: str):
 async def clear_err(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("ERROR: not enough arguments")
-client.run("TOKEN <enter your own>")
+client.run("NzIxMTQ2NTcyNDU2MzI5MjQ2.XuyZsQ.yqNw-vOuo1rye_nwI1Qj9RWLc8U")
