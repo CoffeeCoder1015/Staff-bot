@@ -19,7 +19,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+
     print(message.content, message.author, message.channel)
+
+    await client.process_commands(message)
+
 
 @client.command()
 async def clear(ctx, lmt_arg):
