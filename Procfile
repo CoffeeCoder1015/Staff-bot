@@ -1,1 +1,1 @@
-worker:python Staff.py
+worker: python Staff.py
