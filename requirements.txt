@@ -1,4 +1,2 @@
-timer.py
-google_memer.py
 requests
 bs4
