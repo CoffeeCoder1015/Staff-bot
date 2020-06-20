@@ -27,6 +27,7 @@ async def on_message(message):
 
 @client.command()
 async def clear(ctx, lmt_arg:int):
+    print("agrugemnt processed",int(lmt_arg))
     await ctx.channel.purge(limit=int(lmt_arg)+1)
 
 
