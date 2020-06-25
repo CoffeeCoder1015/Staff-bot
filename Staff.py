@@ -1,13 +1,13 @@
+from math import *
+
 import discord
 from discord.ext import commands
-import json
-import timer
+
 import google_memer
-from math import *
 
 client = commands.Bot(command_prefix="!")
 Id = 720879927108567071
-
+ADMIN_ROLES = ["Admin","NAME BENDER!","Master of channels"]
 
 @client.event
 async def on_ready():
@@ -27,8 +27,17 @@ async def on_message(message):
 
 @client.command()
 async def clear(ctx, lmt_arg:int):
-    print("agrugemnt processed",int(lmt_arg))
-    await ctx.channel.purge(limit=int(lmt_arg)+1)
+    role = str(ctx.author.roles)
+
+    h_count = 0
+    for i in ADMIN_ROLES:
+        if i in role:
+            h_count+=1
+
+    if h_count != 0:
+        await ctx.channel.purge(limit=int(lmt_arg)+1)
+    else:
+        await ctx.send("You do not have permission to run this command")
 
 
 @client.command()
