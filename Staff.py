@@ -56,4 +56,7 @@ async def MATH(ctx, math_arg: str):
 async def clear_err(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("ERROR: not enough arguments")
-client.run("NzIxMTQ2NTcyNDU2MzI5MjQ2.XuyZsQ.yqNw-vOuo1rye_nwI1Qj9RWLc8U")
+
+with open("TOKEN.txt","w")as fio:
+    TOKEN = fio.read()
+client.run(TOKEN)
