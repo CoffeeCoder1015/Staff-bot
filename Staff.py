@@ -57,6 +57,6 @@ async def clear_err(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("ERROR: not enough arguments")
 
-with open("TOKEN.txt","w")as fio:
+with open("TOKEN.txt","r")as fio:
     TOKEN = fio.read()
 client.run(TOKEN)
