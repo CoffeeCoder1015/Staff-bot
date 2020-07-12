@@ -21,7 +21,6 @@ RANDOM_TALK = [
     "ψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψ",
     "pls meme",
     "meow ( •̀ ω •́ )✧",
-    f"@{random.choice(MEMBERS)} hello, would you like to enroll in a pyramid scheme?",
     "🌞",
     "🌚",
     "❄",
@@ -32,10 +31,12 @@ RANDOM_TALK = [
 @client.event
 async def on_ready():
     global MEMBERS
+    global RANDOM_TALK
     print("bot is up!")
     ID = client.get_guild(Id)
     print([i.name for i in ID.roles])
     MEMBERS = [i.name for i in client.get_all_members()]
+    RANDOM_TALK.append(f"@{random.choice(MEMBERS)} hello, would you like to enroll in a pyramid scheme?")
 
 
 @client.event
