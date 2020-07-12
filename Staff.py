@@ -8,23 +8,34 @@ import google_memer
 
 client = commands.Bot(command_prefix="!")
 Id = 720879927108567071
+MEMBERS = []
 ADMIN_ROLES = ["Admin","NAME BENDER!","Master of channels"]
-RANDOM_RESPONSE = ["i need to have a break 😴","WHEN's my shift over at 👿👿👿","🤦‍♂️"]
-ERROR_RESPONSE = ["What are you trying to doooo 🤯🤯🤯🤯","🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️","rhetorical : 👏👏👏👏"]
+RANDOM_RESPONSE = ["i need to have a break 😴","WHEN's my shift over at 👿👿👿","🤦‍♂️","im retirering"]
+ERROR_RESPONSE = ["What are you trying to doooo 🤯🤯🤯🤯","🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️","我嘞个毛","rhetorical : 👏👏👏👏"]
 RANDOM_TALK = [
     "Great coffee ☕",
     "ah, awesome tea 🍵",
     "lunch time, 🥪🥪🥪🥪, oh wait !! 🤯",
     "🐟🎣",
-    "ψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψ"
+    "I **HEAR** ***YOUR*** call **MY** PEOPLE",
+    "ψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψψ(｀∇´)ψ",
+    "pls meme",
+    "meow ( •̀ ω •́ )✧",
+    f"@{random.choice(MEMBERS)} hello, would you like to enroll in a pyramid scheme?",
+    "🌞",
+    "🌚",
+    "❄",
+    "🔥\n☃",
+    "Silently the aircar coasted through the darkness . . . -\npg 158, Chapter 24, Hitchhikers guide of the galaxy"
 ]
 
 @client.event
 async def on_ready():
+    global MEMBERS
     print("bot is up!")
     ID = client.get_guild(Id)
     print([i.name for i in ID.roles])
-    print([i.name for i in client.get_all_members()])
+    MEMBERS = [i.name for i in client.get_all_members()]
 
 
 @client.event
@@ -32,7 +43,7 @@ async def on_message(message):
 
     print(message.content, message.author, message.channel)
     if str(message.channel) == "常规-general":
-        if random.randrange(1,101) >= 50:
+        if random.randrange(1,1001) >= 850 or "<@!721146572456329246>" in str(message.content):
             await message.channel.send(random.choice(RANDOM_TALK))
     await client.process_commands(message)
 
