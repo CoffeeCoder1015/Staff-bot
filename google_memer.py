@@ -12,7 +12,6 @@ header = {
     'Accept-Encoding':'none',
     'Accept-Language':'en-US;q=0.8',
     'Connection':'keep-alive'
-
 }
 
 def scrape(url):
