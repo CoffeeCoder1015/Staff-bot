@@ -165,6 +165,6 @@ async def clear_err(ctx, error):
         else:
             await ctx.send(m)
 
-with open("Staff-bot/TOKEN.txt", "r")as fio:
+with open("TOKEN.txt", "r")as fio:
     TOKEN = fio.read()
 client.run(TOKEN)
