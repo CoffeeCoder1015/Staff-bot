@@ -19,6 +19,9 @@ RANDOM_TALK = [
     "Silently the aircar coasted through the darkness . . . -\npg 158, Chapter 24, Hitchhikers guide of the galaxy"
 ]
 DIRECT_RESPONSE = [
+    ("img","https://pics.me.me/tim-apple-president-orange-meet-timapple-44217842.png"),
+    ("img","https://i.kym-cdn.com/photos/images/newsfeed/001/468/344/fd8.png"),
+    ("img","https://cdn.discordapp.com/emojis/585550292012105729.png?v=1"),
     ("img", "https://i.redd.it/8hkekbti9a221.jpg"),
     "hello, would you like to enroll in a pyramid scheme?",
     "Welcome to seven-eleven",

@@ -39,7 +39,7 @@ async def on_message(message):
 
     # random responce controller
     if str(message.channel) == "常规-general" and dcs == False:
-        if random.randrange(1, 1001) >= 900:
+        if random.randrange(1, 1001) >= 955:
             await message.channel.send(random.choice(RANDOM_TALK))
 
     # direct command controller
