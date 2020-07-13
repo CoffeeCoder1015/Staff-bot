@@ -30,7 +30,7 @@ async def on_message(message):
     print(message.content, message.author, message.channel)
 
     # -------------check establishing if statement-----------------------
-    if "staffbot" in str(message.content) or "<@!721146572456329246>" in str(message.content):
+    if "staffbot" in str(message.content).lower() or "<@!721146572456329246>" in str(message.content):
         dcs = True
         for i in str(message.content).split(" "):
             if i in dcmd:
