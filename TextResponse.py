@@ -1,7 +1,14 @@
-RANDOM_RESPONSE = ["i need to have a break 😴",
-                   "ARE YOU KIDDING ME", "🤦‍♂️", "im retirering", "我嘞个毛","rhetorical : 👏👏👏👏"]
-ERROR_RESPONSE = ["What are you trying to doooo 🤯🤯🤯🤯",
-                  "🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️", "我嘞个毛", "rhetorical : 👏👏👏👏"]
+ERROR_RESPONSE_0 = ["i need to have a break 😴",
+                   "ARE YOU KIDDING ME", 
+                   "🤦‍♂️", "im retirering",
+                    "我嘞个毛","rhetorical : 👏👏👏👏",
+                    ("img","https://scontent.fakl4-1.fna.fbcdn.net/v/t1.0-9/12074637_870314046371436_6469537624394532205_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=6AmlAPMFEyIAX_nc0El&_nc_ht=scontent.fakl4-1.fna&oh=dfcdd43f80a6abf6a0c8a1849e3a5a47&oe=5F2FC98F")
+                    ]
+ERROR_RESPONSE_1 = ["What are you trying to doooo 🤯🤯🤯🤯",
+                  "🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️", "我嘞个毛",
+                   "rhetorical : 👏👏👏👏",
+                   ("img","https://scontent.fakl4-1.fna.fbcdn.net/v/t1.0-9/12074637_870314046371436_6469537624394532205_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=6AmlAPMFEyIAX_nc0El&_nc_ht=scontent.fakl4-1.fna&oh=dfcdd43f80a6abf6a0c8a1849e3a5a47&oe=5F2FC98F")
+                   ]
 RANDOM_TALK = [
     "Great coffee ☕",
     "ah, awesome tea 🍵",

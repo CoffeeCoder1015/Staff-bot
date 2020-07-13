@@ -88,7 +88,14 @@ async def clear(ctx, lmt_arg: int):
     if h_count != 0:
         await ctx.channel.purge(limit=int(lmt_arg)+1)
     else:
-        await ctx.send(random.choice(ERROR_RESPONSE))
+        m = random.choice(ERROR_RESPONSE_1)
+        if m[0] == "img":
+            async with aiohttp.ClientSession() as session:
+                async with session.get(m[1]) as resp:
+                    data = io.BytesIO(await resp.read())
+                    await ctx.send(file=discord.File(data, 'image.jpg'))
+        else:
+            await ctx.send(m)
 
 
 @client.command()
@@ -103,13 +110,27 @@ async def MATH(ctx, math_arg: str):
         eq = math_arg.replace("^", "**")
         await ctx.send(str(eval(eq)))
     except:
-        await ctx.send(random.choice(RANDOM_RESPONSE))
+        m = random.choice(ERROR_RESPONSE_0)
+        if m[0] == "img":
+            async with aiohttp.ClientSession() as session:
+                async with session.get(m[1]) as resp:
+                    data = io.BytesIO(await resp.read())
+                    await ctx.send(file=discord.File(data, 'image.jpg'))
+        else:
+            await ctx.send(m)
 
 
 @clear.error
 async def clear_err(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(random.choice(ERROR_RESPONSE))
+        m = random.choice(ERROR_RESPONSE_1)
+        if m[0] == "img":
+            async with aiohttp.ClientSession() as session:
+                async with session.get(m[1]) as resp:
+                    data = io.BytesIO(await resp.read())
+                    await ctx.send(file=discord.File(data, 'image.jpg'))
+        else:
+            await ctx.send(m)
 
 with open("TOKEN.txt", "r")as fio:
     TOKEN = fio.read()
