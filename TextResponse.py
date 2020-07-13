@@ -26,8 +26,9 @@ DIRECT_RESPONSE = [
     "hello, would you like to enroll in a pyramid scheme?",
     "Welcome to seven-eleven",
     "What a great day",
-    "Are you bored?\n well im here to sell you the un-bored-er 5000!!!🔥🔥🔥",
-    "anyways . . ."
+    "Are you bored?\nwell im here to sell you the un-bored-er 5000!!!🔥🔥🔥",
+    "anyways . . .\nhttps://en.wikipedia.org/wiki/Integral",
+    "\🤠/ 🌵\n ▮  🐪\n /\\"
 ]
 POWER_urls = [
     "https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fentries%2Ficons%2Ffacebook%2F000%2F032%2F676%2FUnlimited_Power_Banner.jpg",
