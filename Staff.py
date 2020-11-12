@@ -1,18 +1,21 @@
 import io
 import random
+import time
 from math import *
-from TextResponse import *
+
 import aiohttp
 import discord
 import requests
 from discord.ext import commands
 
 import google_memer
+from TextResponse import *
+from termcolor import colored
 
 client = commands.Bot(command_prefix="!")
 MEMBERS = []
-ADMIN_ROLES = ["Admin", "NAME BENDER!", "Master of channels"]
-dcmd = ["power", "myside"]
+ADMIN_ROLES = ["admin"]
+dcmd = ["power", "myside", "noschool"]
 
 
 @client.event
@@ -24,10 +27,46 @@ async def on_ready():
 
 
 @client.event
+async def on_message_edit(before, after):
+    if before.content != after.content:
+        att = []
+        for obj in [before, after]:
+            if len(obj.attachments) != 0:
+                attach = str(obj.attachments[0]).replace(
+                    "<", "").replace(">", "")
+                attach = attach[attach.index("url")+4:].replace("\n", "")
+                att.append(attach)
+            else:
+                att.append(None)
+        printstr = f"{before.content}  |  {att[0]}\n{after.content}  |  {att[1]}\n{before.author}  |  {before.channel}"
+        print(colored(f"EDIT:\n{printstr}", "green"))
+
+
+@client.event
+async def on_message_delete(msg):
+    attach = None
+    if len(msg.attachments) != 0:
+        attach = str(msg.attachments[0]).replace("<", "").replace(">", "")
+        attach = attach[attach.index("url")+4:].replace("\n", "")
+    printstr = f"{msg.content}  |  {attach}  |  {msg.author}  |  {msg.channel}"
+    print(colored(f"DELETE: {printstr}", "red"))
+
+
+@client.event
 async def on_message(message):
+    global Norm_txt_Log
     dcs = False
     cc = False
-    print(message.content, message.author, message.channel)
+    attach = None
+
+    if Norm_txt_Log == True:
+        if len(message.attachments) != 0:
+            attach = str(message.attachments[0]).replace(
+                "<", "").replace(">", "")
+            attach = attach[attach.index("url")+4:].replace("\n", "")
+
+        print(message.content, " | ", attach, " | ",
+              message.author, " | ", message.channel)
 
     # -------------check establishing if statement-----------------------
     if "staffbot" in str(message.content).lower() or "<@!721146572456329246>" in str(message.content):
@@ -72,6 +111,10 @@ async def on_message(message):
                     async with session.get(random.choice(POWER_urls)) as resp:
                         data = io.BytesIO(await resp.read())
                         await message.channel.send(file=discord.File(data, 'image.gif'))
+
+            # ----- "kermit meme" ------
+            if cc == "noschool":
+                await message.channel.send("https://i.imgflip.com/27mcwr.gif")
 
     await client.process_commands(message)
 
@@ -124,7 +167,8 @@ async def MATH(ctx, math_arg: str):
         if len(v) <= 2000:
             await ctx.send(v)
         # ---has x role to use the jank char limit overide-er to see the answer---
-        elif h_count != 0 and len(v) <= 30000:  # the limit is there so that it wont bomb the channel with text
+        # the limit is there so that it wont bomb the channel with text
+        elif h_count != 0 and len(v) <= 30000:
             ts = len(v)//2000
             v = list(v)
             nlst = []
@@ -165,6 +209,14 @@ async def clear_err(ctx, error):
         else:
             await ctx.send(m)
 
+Norm_txt_Log = True
+
+idn = 0
 with open("TOKEN.txt", "r")as fio:
-    TOKEN = fio.read()
-client.run(TOKEN)
+    TOKEN = fio.readlines()[idn]
+
+if idn >= 1:
+    botid = False
+else:
+    botid = True
+client.run(TOKEN, bot=botid)
