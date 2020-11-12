@@ -7,10 +7,11 @@ import aiohttp
 import discord
 import requests
 from discord.ext import commands
+from termcolor import colored
 
+import f_opt
 import google_memer
 from TextResponse import *
-from termcolor import colored
 
 client = commands.Bot(command_prefix="!")
 MEMBERS = []
@@ -211,12 +212,7 @@ async def clear_err(ctx, error):
 
 Norm_txt_Log = True
 
-idn = 0
-with open("TOKEN.txt", "r")as fio:
-    TOKEN = fio.readlines()[idn]
+def run(ID,mode):
+    client.run(ID,bot=mode)
 
-if idn >= 1:
-    botid = False
-else:
-    botid = True
-client.run(TOKEN, bot=botid)
+f_opt.opt_parser("-runmode",["str","bool"],run)
