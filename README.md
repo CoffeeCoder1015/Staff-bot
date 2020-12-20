@@ -1,5 +1,8 @@
-# Staff-bot
-The BS Discord bot
+<p align="center">
+    <h1>Staff Bot</h1>
+    <br>
+    <p>THE BS DISCORD BOT</p>
+</p>
 
 ![title](/StaffbotIco.png)
 
