@@ -1,31 +1,38 @@
 import sys
-def opt_parser(header,args,function):
-    optlst = sys.argv
-    
-    if header == "":
-        header = " "
 
-    if header in optlst or header == " ":
+class f_opt:
+    def __init__(self, checkArgs: dict):
+        self.args = sys.argv
+        self.cArgs = checkArgs
+        self.check()
 
-        if header == " " and len(optlst) == 1:
-            optlst.extend(" ")
+    def Bool(self,b):
+        #the special function to deal with bool("False") == True
+        return bool(int(b.replace("False","0").replace("True","1")))
 
-        if optlst[1] == header:
-            exc = False
-
-            try:
-                del optlst[0]
-                del optlst[0]
-                
-                for i in range(0,len(optlst)):
-                    optlst[i] = "%s(\"%s\")"%(args[i],optlst[i])
-                optlst=str(optlst).replace("[","").replace("]","").replace("'","")
-                fwa = str("function(%s)"%(optlst))
-                exec(fwa)
-                exc = True
-                
-            except:
-                if exc == False:
-                    print("usage:")
-                    print(f"\"file\" {header} {args}")
-                    print(f"This functions only accepts {len(args)} arguments")
+    def check(self):
+        #use special Bool func if bool is used
+        for i in self.cArgs.items():
+            self.cArgs[i[0]]=([i if i != bool else self.Bool for i in i[1][0]],i[1][1])
+        # check if args are supplied
+        pos = []
+        reqDist = []
+        EndDist = len(self.args)
+        for p, i in enumerate(self.args):
+            if self.cArgs.get(i) != None:
+                pos.append((p, i))
+                reqDist.append(len(self.cArgs.get(i)[0]))
+        Dist = [pos[i][0]-pos[i-1][0]-1 for i in range(1, len(pos))]
+        Dist.append(EndDist-pos[len(pos)-1][0]-1)
+        fault = False
+        for p, i in enumerate(Dist):
+            if i != reqDist[p]:
+                print(f"The option {pos[p][1]} requires {reqDist[p]} arguments.  {i} option(s) has been supplied.")
+                fault = True
+        if fault == True:
+            return
+        #run and fallback
+        funcOPT = [self.cArgs.get(i[1]) for i in pos]
+        for i in range(0, len(funcOPT)):
+            start = pos[i][0]+1
+            funcOPT[i][1](*[funcOPT[i][0][p1](i1) for p1, i1 in enumerate(self.args[start: start+len(funcOPT[i][0])])])

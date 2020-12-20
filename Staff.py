@@ -33,13 +33,11 @@ async def on_message_edit(before, after):
         att = []
         for obj in [before, after]:
             if len(obj.attachments) != 0:
-                attach = str(obj.attachments[0]).replace(
-                    "<", "").replace(">", "")
-                attach = attach[attach.index("url")+4:].replace("\n", "")
+                attach = obj.attachments[0].url
                 att.append(attach)
             else:
                 att.append(None)
-        printstr = f"{before.content}  |  {att[0]}\n{after.content}  |  {att[1]}\n{before.author}  |  {before.channel}"
+        printstr = f"{before.content}  |  {att[0]}\n{after.content}  |  {att[1]}\n{before.author}  |  {before.channel} | {before.guild}"
         print(colored(f"EDIT:\n{printstr}", "green"))
 
 
@@ -47,9 +45,8 @@ async def on_message_edit(before, after):
 async def on_message_delete(msg):
     attach = None
     if len(msg.attachments) != 0:
-        attach = str(msg.attachments[0]).replace("<", "").replace(">", "")
-        attach = attach[attach.index("url")+4:].replace("\n", "")
-    printstr = f"{msg.content}  |  {attach}  |  {msg.author}  |  {msg.channel}"
+        attach = msg.attachments[0].url
+    printstr = f"{msg.content}  |  {attach}  |  {msg.author}  |  {msg.channel} | {msg.guild}"
     print(colored(f"DELETE: {printstr}", "red"))
 
 
@@ -62,12 +59,9 @@ async def on_message(message):
 
     if Norm_txt_Log == True:
         if len(message.attachments) != 0:
-            attach = str(message.attachments[0]).replace(
-                "<", "").replace(">", "")
-            attach = attach[attach.index("url")+4:].replace("\n", "")
-
-        print(message.content, " | ", attach, " | ",
-              message.author, " | ", message.channel)
+            attach = message.attachments[0].url
+        printstr = f"{message.content}  |  {attach}  |  {message.author}  |  {message.channel} | {message.guild}"
+        print(printstr)
 
     # -------------check establishing if statement-----------------------
     if "staffbot" in str(message.content).lower() or "<@!721146572456329246>" in str(message.content):
@@ -212,7 +206,10 @@ async def clear_err(ctx, error):
 
 Norm_txt_Log = True
 
-def run(ID,mode):
-    client.run(ID,bot=mode)
 
-f_opt.opt_parser("-runmode",["str","bool"],run)
+def run(ID, mode):
+    client.run(ID, bot=mode)
+
+f_opt.f_opt({
+    "-rm": ([str, bool], run)
+    })
