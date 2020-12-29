@@ -1,14 +1,14 @@
 ERROR_RESPONSE_0 = ["i need to have a break 😴",
-                   "ARE YOU KIDDING ME", 
-                   "🤦‍♂️", "im retirering",
-                    "我嘞个毛","rhetorical : 👏👏👏👏",
-                    ("img","https://memegenerator.net/img/instances/76531130.jpg")
+                    "ARE YOU KIDDING ME",
+                    "🤦‍♂️", "im retirering",
+                    "我嘞个毛", "rhetorical : 👏👏👏👏",
+                    ("img", "https://memegenerator.net/img/instances/76531130.jpg")
                     ]
 ERROR_RESPONSE_1 = ["What are you trying to doooo 🤯🤯🤯🤯",
-                  "🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️", "我嘞个毛",
-                   "rhetorical : 👏👏👏👏",
-                   ("img","https://memegenerator.net/img/instances/76531130.jpg")
-                   ]
+                    "🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️🤦‍♂️", "我嘞个毛",
+                    "rhetorical : 👏👏👏👏",
+                    ("img", "https://memegenerator.net/img/instances/76531130.jpg")
+                    ]
 RANDOM_TALK = [
     "Great coffee ☕",
     "ah, awesome tea 🍵",
@@ -26,8 +26,8 @@ RANDOM_TALK = [
     "Silently the aircar coasted through the darkness . . . -\npg 158, Chapter 24, Hitchhikers guide of the galaxy"
 ]
 DIRECT_RESPONSE = [
-    ("img","https://pics.me.me/tim-apple-president-orange-meet-timapple-44217842.png"),
-    ("img","https://i.kym-cdn.com/photos/images/newsfeed/001/468/344/fd8.png"),
+    ("img", "https://pics.me.me/tim-apple-president-orange-meet-timapple-44217842.png"),
+    ("img", "https://i.kym-cdn.com/photos/images/newsfeed/001/468/344/fd8.png"),
     ("img", "https://i.redd.it/8hkekbti9a221.jpg"),
     "hello, would you like to enroll in a pyramid scheme?",
     "Welcome to seven-eleven",
