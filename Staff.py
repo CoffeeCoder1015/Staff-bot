@@ -17,7 +17,8 @@ from TextResponse import *
 client = commands.Bot(command_prefix="!")
 MEMBERS = []
 ADMIN_ROLES = ["admin"]
-dcmd = ["power", "myside", "noschool","guess","oof"]
+dcmd = ["power", "myside", "noschool", "guess",
+        "oof", "breaksnowbot", "boom", "arson", "slap", "reverse"]
 
 
 @client.event
@@ -116,7 +117,7 @@ async def on_message(message):
             if cc == "guess":
                 guessnum = str(message.content).split(" ")
                 if len(guessnum) != 3:
-                    m=random.choice(ERROR_RESPONSE_0)
+                    m = random.choice(ERROR_RESPONSE_0)
                     if m[0] == "img":
                         async with aiohttp.ClientSession() as session:
                             async with session.get(m[1]) as resp:
@@ -134,13 +135,29 @@ async def on_message(message):
                     else:
                         await message.channel.send(m)
                     await message.channel.send("The answer is")
-                    await message.channel.send(str(re_main.generate())[0:random.randint(10,1000)])
+                    await message.channel.send(str(re_main.generate())[0:random.randint(10, 1000)])
             # oof
             if cc == "oof":
                 async with aiohttp.ClientSession() as session:
                     async with session.get("https://images-na.ssl-images-amazon.com/images/I/61IwNTw0fCL._AC_UL600_SR600,600_.png") as resp:
                         data = io.BytesIO(await resp.read())
                         await message.channel.send(file=discord.File(data, 'image.png'))
+            # boom
+            if cc == "boom":
+                await message.channel.send("https://gfycat.com/querulousspecificfossa")
+            # arson
+            if cc == "arson":
+                await message.channel.send("https://filmdaily.co/wp-content/uploads/2020/06/meme-03.gif")
+            # slap
+            if cc == "slap":
+                await message.channel.send("https://tenor.com/view/fight-push-penguin-slap-gif-5543928")
+            #uno reverse
+            if cc == "reverse":
+                await message.channel.send("https://tenor.com/view/reverse-uno-card-game-colorful-gif-16633402")
+            if cc == "breaksnowbot":
+                for _ in range(0, 10):
+                    await message.channel.send("hello")
+                    await message.channel.send("snowbot")
 
     await client.process_commands(message)
 
@@ -241,6 +258,7 @@ Norm_txt_Log = True
 def run(ID, mode):
     client.run(ID, bot=mode)
 
+
 f_opt.f_opt({
     "-rm": ([str, bool], run)
-    })
+})
