@@ -16,7 +16,7 @@ from TextResponse import *
 client = commands.Bot(command_prefix="!")
 MEMBERS = []
 ADMIN_ROLES = ["admin"]
-dcmd = ["power", "myside", "noschool", "guess",
+dcmd = ["power", "myside", "noschool",
         "oof", "breaksnowbot", "boom", "arson", "slap", "reverse"]
 
 
@@ -126,7 +126,7 @@ async def on_message(message):
             # slap
             if cc == "slap":
                 await message.channel.send("https://tenor.com/view/fight-push-penguin-slap-gif-5543928")
-            #uno reverse
+            # uno reverse
             if cc == "reverse":
                 await message.channel.send("https://tenor.com/view/reverse-uno-card-game-colorful-gif-16633402")
             if cc == "breaksnowbot":
