@@ -2,7 +2,6 @@ import io
 import random
 import time
 from math import *
-import re_main
 
 import aiohttp
 import discord
@@ -112,30 +111,6 @@ async def on_message(message):
             # ----- "kermit meme" ------
             if cc == "noschool":
                 await message.channel.send("https://i.imgflip.com/27mcwr.gif")
-
-            # ---- guess the number
-            if cc == "guess":
-                guessnum = str(message.content).split(" ")
-                if len(guessnum) != 3:
-                    m = random.choice(ERROR_RESPONSE_0)
-                    if m[0] == "img":
-                        async with aiohttp.ClientSession() as session:
-                            async with session.get(m[1]) as resp:
-                                data = io.BytesIO(await resp.read())
-                                await message.channel.send(file=discord.File(data, 'image.jpg'))
-                    else:
-                        await message.channel.send(m)
-                else:
-                    m = random.choice(ERROR_RESPONSE_1)
-                    if m[0] == "img":
-                        async with aiohttp.ClientSession() as session:
-                            async with session.get(m[1]) as resp:
-                                data = io.BytesIO(await resp.read())
-                                await message.channel.send(file=discord.File(data, 'image.jpg'))
-                    else:
-                        await message.channel.send(m)
-                    await message.channel.send("The answer is")
-                    await message.channel.send(str(re_main.generate())[0:random.randint(10, 1000)])
             # oof
             if cc == "oof":
                 async with aiohttp.ClientSession() as session:
